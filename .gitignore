@@ -1,0 +1,6 @@
+# Don't track contents of these folders
+data/
+.ipynb_checkpoints/
+
+# Don't track artifacts
+*.pyc
