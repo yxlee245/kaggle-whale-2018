@@ -12,6 +12,6 @@ def class_weighter(labels_encoded):
     '''Takes in a NumPy array contained a set of encoded labels
     Returns a dict in the form {label: weight}'''
     classes_unique = np.array(list(set(labels_encoded)))
-    sample_weight_dict = {label: len(labels_encoded[labels_encoded == label]) for label in labels_encoded}
+    sample_weight_dict = {label: 0.75 / len(labels_encoded[labels_encoded == label]) for label in labels_encoded}
     return sample_weight_dict
     
