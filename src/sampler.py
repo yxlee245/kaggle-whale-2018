@@ -94,3 +94,26 @@ def undersampler(labels_array, validation_size, random_state=0):
     np.random.seed(random_state)
     validation_index = np.random.choice(out_of_sample_index, validation_size, replace=False)
     return sample_index, validation_index
+
+def up_down_sampler(labels_array, validation_size, size_per_class, random_state=0):
+    '''
+    labels_array - NumPy array containing the encoded labels of each image
+    validation_size - size of validation set to be sampled
+    size_per_class - number of observations to be sampled per class
+    random_state - random seed number for the RNG
+    Returns the indices for training sample and validation set as NumPy arrays
+    '''
+    index_array = np.arange(len(labels_array))
+    classes_unique = np.array(list(set(labels_array)))
+    sample_index = np.array([], dtype=int)
+    for i, class_label in enumerate(classes_unique):
+        indices_array = np.argwhere(labels_array == class_label).flatten()
+        np.random.seed(random_state+i)
+        if (indices_array.shape[0] >= size_per_class):
+            sample_index = np.append(sample_index, np.random.choice(indices_array, size_per_class, replace=False))
+        else:
+            sample_index = np.append(sample_index, np.random.choice(indices_array, size_per_class, replace=True))
+    out_of_sample_index = index_array[~np.isin(index_array, sample_index)]
+    np.random.seed(random_state)
+    validation_index = np.random.choice(out_of_sample_index, validation_size, replace=False)
+    return sample_index, validation_index
