@@ -1,5 +1,6 @@
 # Don't track contents of these folders
 data/
+models/
 .ipynb_checkpoints/
 
 # Don't track artifacts

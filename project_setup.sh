@@ -6,7 +6,6 @@ mkdir raw
 mkdir derived
 
 # Download data from Kaggle API (enable virtual environment first and save API token in .kaggle/ first)
-pip install kaggle
 chmod 600 ~/.kaggle/kaggle.json # disallow other system users from accessing kaggle API key
 cd raw
 kaggle competitions download -c humpback-whale-identification
