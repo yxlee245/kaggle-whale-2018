@@ -1,11 +1,23 @@
 # Kaggle Competition: Humpback Whale Identification
 
 ## Problem
-Identify individual whales in images (Image classification).
-Link to competition: https://www.kaggle.com/c/humpback-whale-identification
+Identify individual whales in images
+[Kaggle competition: Humpback Whale Identification](https://www.kaggle.com/c/humpback-whale-identification)
 
-## Description of Files
-1. `whale_env.yml` - Conda environment file for import, to create the virtual environment and install the required packages for this project.
-2. `project_setup.sh` - Shell script to automate the process of creating virtual environment, install the necessary packages, create the basic subfolders (`data/raw`, `data/derived`, `src`), and download the data to `data/raw`.
-3. `Data_Preprocessing.ipynb` - Jupyter notebook for basic data exploration and preprocess image data for machine learning
-4. `Baseline_Model_KNN.ipynb` - Jupyter notebook containing K-Nearest neighbor model as baseline
+## Reproducing this project
+__Note__:
+- The terminal commands here will be for Ubuntu, as I'm more familiar with the commands. Please search for the relevant alternatives if you're using Windows or Mac.
+- I assume that you have GPU and CUDA set up in your physical machine / VM for deep learning. If you don't, the Tesnsorflow installation for GPU will fail to run properly.
+
+Assuming that you have Anaconda installed:
+1. Create a folder named `.kaggle` (hidden folder) in your machine's home directory.
+2. Download the `kaggle.json` file containing your Kaggle account info, and move it into the `.kaggle` folder. (You can find out about downloading the `kaggle.json` [here](https://github.com/Kaggle/kaggle-api).)
+(First 2 steps are needed to download the data via the terminal using the Kaggle API.)
+3. In the terminal, navigate to the directory where you want to clone this repo to, by using the command `cd <your directory>`.
+4. Clone this repo by the command `git clone https://github.com/yxlee245/kaggle-whale-2018.git`.
+5. Navigate to the local repo by the command `cd kaggle-whale-2018`.
+6. Import the environment from the file `whale_env.yml`, using the command `conda env create -f whale_env.yml`.
+7. Run the shell script `project_setup.sh` to create the `data` folder, then download and unpack the raw data.
+8. Run the Jupyter notebooks as needed.
+
+__Extra__: `drafts` folder created to hold previous attempts of creating the recognition model
