@@ -1,7 +1,7 @@
 # Kaggle Competition: Humpback Whale Identification
 
 ## Problem
-Identify individual whales in images
+Identify individual whales in images<br>
 [Kaggle competition: Humpback Whale Identification](https://www.kaggle.com/c/humpback-whale-identification)
 
 ## Reproducing this project
