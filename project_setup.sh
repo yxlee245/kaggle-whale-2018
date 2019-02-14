@@ -1,6 +1,5 @@
 # Create folders for data and code base (point to working directory first)
 mkdir data
-mkdir src
 cd data
 mkdir raw
 mkdir derived
